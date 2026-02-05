@@ -1,6 +1,7 @@
 <script setup>
 
 import { computed } from 'vue';
+import { removeGrocery } from '../domains/groceries/store.js';
 
 const products = defineModel();
 
@@ -29,14 +30,15 @@ const total = computed(() => {
         </tr>
         <tr v-for="(item, index) in products">
             <td class="product">{{item.product}}</td>
-            <td class="amount product-price">{{ item.price }}</td>
+            <td class="amount product-price">€ {{ item.price.toFixed(2) }}</td>
             <td><input class="product-quantity" :name="item.product" type="number" v-model="products[index].amount"></td>
-            <td class="amount product-totalcost">{{ subtotal(item) }}</td>
-            <td><RouterLink class="btn-secondary" to="/edit">Edit</RouterLink></td>
+            <td class="amount product-totalcost">€ {{ subtotal(item) }}</td>
+            <td><RouterLink class="btn-secondary" :to="'/edit/' + item.id">Edit</RouterLink></td>
+            <td><button class="btn-tertiary" @click="removeGrocery(item.id)">Delete</button></td>
         </tr>
         <tr>
             <td class="total" colspan="3"><strong>Total</strong></td>
-            <td class="amount" id="totalcost"><strong></strong>{{ total }}</td>
+            <td class="amount" id="totalcost"><strong>€ {{ total }}</strong></td>
         </tr>
     </table>
 

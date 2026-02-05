@@ -1,25 +1,37 @@
 <script setup>
 import { ref } from 'vue';
 
+
     const getNewGrocery = defineProps({
         grocery: {},
     })
     const localGrocery = ref({...getNewGrocery.grocery});
 
     const emit = defineEmits(['updateList']);
-    const emitEvent = () => {
+    const updateGroceryList = () => {
         emit('updateList', localGrocery.value);
+    }
+
+    function redirectToOverview(){
+        
     }
 </script>
 
 <template>
-    <form @submit.prevent="emitEvent">
-        <label v-for="(element, key, index) in localGrocery" :key="index">
-            {{ key }}
-            <input :name="element" v-model="localGrocery[key]"></input>
-            <br></br>
+
+    <form id="edit">
+        <label v-for="(element, key, index) in localGrocery" :key="index" v-show="key != 'id'">
+            <h4>{{ key }}</h4>
+            <input 
+                :name="element" 
+                :type="typeof localGrocery[key] === 'number' ? 'number' : 'text'"
+                :step=0.01
+                v-model="localGrocery[key]"
+            >
+            </input>
         </label>
-        <button type="submit">Submit</button>
+        
+        <button id="submit" type="button" @click="updateGroceryList">Submit</button>
     </form>
 
 </template>

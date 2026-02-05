@@ -99,7 +99,7 @@ nav {
 }
 .main-nav-item {
   background-color: rgb(132, 148, 132);
-  color: rgb(23, 24, 22);
+  color: white;
   border: 5px solid rgb(132, 148, 132);
   border-radius: 20px;
   padding: 15px;
@@ -107,7 +107,7 @@ nav {
 }
 .main-nav-item:hover {
   background-color: transparent;
-  color: rgb(23, 24, 22);
+  color: rgb(63, 73, 63);
 }
 .btn-secondary {
   color: rgb(66, 85, 66);
@@ -119,4 +119,59 @@ nav {
 .btn-secondary:hover {
   color: rgb(23, 24, 22);
   border: 2px solid rgb(23, 24, 22);
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  text-decoration: underline;
+}
+.btn-tertiary:hover {
+  border: none;
+  border-color: transparent;
+  text-decoration: none;
+}
+.btn-tertiary:focus, .btn-tertiary:active {
+  font-weight: bolder;
+  outline: none;
+}
+
+#edit {
+  width: 100%;
+}
+#edit label#text {
+  text-align: left;
+}
+#edit label input, .product-quantity{
+  background-color: rgb(178, 195, 199);
+  border: 2px solid rgb(178, 195, 199);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+#edit label input:focus, .product-quantity:focus{
+  border: 2px solid rgb(80, 129, 161);
+  outline: none;
+}
+#edit label h4 {
+  margin-bottom: 5px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+#submit {
+  background-color: rgb(80, 129, 161);
+  border: 5px solid rgb(80, 129, 161);
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  color: white;
+}
+#submit:focus {
+  outline: none;
+}
+#submit:hover {
+  background-color: transparent;
+  color: rgb(42, 69, 87);
 }
