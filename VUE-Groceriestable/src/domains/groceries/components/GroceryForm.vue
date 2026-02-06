@@ -1,20 +1,25 @@
 <script setup>
 import { ref } from 'vue';
-
+import { useRouter } from 'vue-router'
+    
+const router = useRouter();
 
     const getNewGrocery = defineProps({
         grocery: {},
     })
     const localGrocery = ref({...getNewGrocery.grocery});
 
+    function handleSubmit(){
+        updateGroceryList();
+        router.push('/');
+    }
+    
     const emit = defineEmits(['updateList']);
     const updateGroceryList = () => {
         emit('updateList', localGrocery.value);
     }
 
-    function redirectToOverview(){
-        
-    }
+    
 </script>
 
 <template>
@@ -31,7 +36,7 @@ import { ref } from 'vue';
             </input>
         </label>
         
-        <button id="submit" type="button" @click="updateGroceryList">Submit</button>
+        <button id="submit" type="button" @click="handleSubmit">Submit</button>
     </form>
 
 </template>
