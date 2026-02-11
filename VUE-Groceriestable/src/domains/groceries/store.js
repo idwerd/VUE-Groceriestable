@@ -29,6 +29,7 @@ const groceries = ref([{
 
 //getter
 export const getAllGroceries = computed(() => groceries.value);
+export const getGroceryById = (groceryID) => computed(() => groceries.value.find(grocery => grocery.id === groceryID))
 
 //action
 export const addGrocery = (grocery) => groceries.value.push(grocery);

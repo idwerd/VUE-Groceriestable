@@ -4,7 +4,7 @@
 
 <template>
   <nav>
-    <RouterLink class="main-nav-item" to="/">Overview</RouterLink>
+    <RouterLink class="main-nav-item" :to="{name: 'groceries.overview'}">Overview</RouterLink>
     <RouterLink class="main-nav-item" to="/create">Create</RouterLink>
   </nav>
 

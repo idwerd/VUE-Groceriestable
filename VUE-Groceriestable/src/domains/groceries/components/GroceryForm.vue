@@ -4,10 +4,10 @@ import { useRouter } from 'vue-router'
     
 const router = useRouter();
 
-    const getNewGrocery = defineProps({
+    const {grocery} = defineProps({
         grocery: {},
     })
-    const localGrocery = ref({...getNewGrocery.grocery});
+    const localGrocery = ref({...grocery});
 
     function handleSubmit(){
         updateGroceryList();
